@@ -1,0 +1,108 @@
+ - Maven project:
+     - Maven is a "build" automation tool
+     - "build" : repeating steps when we are creating a project
+     - Maven project is different than Java project.
+     - Maven is NOT a tool for testers.
+     - It comes with certain type of folder structure and other files.
+
+     - src
+         - main : this is where developers write the source code of the webApp/webPage
+         - test : this is where developers write their unit tests
+     - pom.XML : this file is used to add and manage dependencies of our project
+
+
+     - target : this file is where the maven project is storing the compiled version of the project and some other information.
+     - it will only appear after you run your code.
+     - everything in this folder will be refreshed every time we run our code.
+
+Selenium methods:
+    #1- What does the method do?
+    #2- Does it accept any argument?
+    #3- Does it have a return type?
+    #4- Does it throw any certain exception?
+
+
+- .get("");
+#1- What does the method do?
+    - It gets given URL in an opened browser.
+
+#2- Does it accept any argument?
+    - Yes it does.
+    - It accepts a String argument.
+
+#3- Does it have a return type?
+    - Void return type.
+
+
+- Basic navigations
+
+    driver.navigate() --> navigate methods allows us to do simple navigations
+    driver.navigate().forward () --> will take page to forward page
+    driver.navigate().back() --> will take page to previous page
+    driver.navigate().refresh()--> will refresh the current page
+    driver.navigate().to() --> exactly same as .get() method
+
+- .getTitle();
+
+#1- What does the method do?
+    - It gets the title of the page
+
+#2- Does it accept any argument?
+    - No. It does not accept any argument.
+
+#3- Does it have a return type?
+    - Yes. It returns a String.
+    - It gets the title of the current page, and returns it as a String.
+
+#4- Does it throw any certain exception?
+    - No.
+
+- .getCurrentUrl();
+#1- What does the method do?
+    - Gets the URL of the current page.
+
+#2- Does it accept any argument?
+    - No. It does not accept any argument.
+
+#3- Does it have a return type?
+    - Yes. It returns a String.
+    - Gets the URL of the current page and return as String.
+
+#4- Does it throw any certain exception?
+    - No.
+
+
+- driver.manage().window().maximize();
+    - maximizes the currently opened browser
+    - this effect (maximizing) will happen on the line we call this method
+
+
+- driver.manage().window().fullscreen();
+    - this one sometimes does not work for windows, so better not use it.
+
+Why maximizing the page is important?
+    - Because in different sizes the content displayed will be different.
+    - This happens if the page is "responsive".
+
+    - Responsive means : if size gets smaller, it will display less content.
+        - Maybe it will store some web elements under some hamburger menu, or some other type of menu.
+
+
+- driver.close();
+    - will close only the currently opened browser
+    - if we have more than one window open, it will only close the one that was focused on
+
+- driver.quit();
+    - it kills the current session.
+    - it means if more than one window was opened, everything will be closed.
+    - after using .quit() method, we cannot execute any more line of codes.
+
+    - We will get "NoSuchSessionException"
+
+What is a session?
+    - Every time we run our Selenium code a session is created.
+    - That specific session will continue until we explicitly kill it or code execution comes to end.
+
+
+INTERVIEW QUESTION: Tell me about the common exceptions you are getting when you are using Selenium WebDriver?
+
