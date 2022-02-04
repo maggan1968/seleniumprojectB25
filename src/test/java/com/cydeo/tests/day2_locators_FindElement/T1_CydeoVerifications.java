@@ -22,7 +22,7 @@ public class T1_CydeoVerifications {
         WebDriverManager.chromedriver().setup();
 
         //1. Open Chrome browser
-        WebDriver driver= new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
         //2 make our page fullscreen
         driver.manage().window().maximize();
@@ -31,24 +31,32 @@ public class T1_CydeoVerifications {
         driver.get("https://practice.cydeo.com");
 
         //4.Verify URL contains
-        System.out.println("driver.getCurrentUrl() = " +driver.getCurrentUrl());
+        //Expected: cydeo
+        String expectedURL = "cydeo";
+        String actualURL = driver.getCurrentUrl();
 
-        //5. get the page source of html
-        System.out.println("driver.getPageSource() =" + driver.getPageSource());
-
-        //6.Verify title:
-        String expectedTitle = "Practice";
-
-        //7. actual title comes from the browser
-        String actualTitle = driver.getTitle();
-
-    if (actualTitle.equals(expectedTitle)){
-        System.out.println("Title is expected. Verification Passed");
-    }else {
-        System.out.println("Title is NOT as expected. Verification Failed");
+        if (actualURL.contains(expectedURL)) {
+            System.out.println("URL is expected. Verification Passed");
+        } else {
+            System.out.println("URL is NOT as expected. Verification Failed");
 
 
-        driver.quit();
-}
+        }
+            //5.Verify title:
+            //Expected: Practice
+            String expectedTitle = "Practice";
+
+            //6. actual title comes from the browser
+            String actualTitle = driver.getTitle();
+
+            if (actualTitle.equals(expectedTitle)) {
+                System.out.println("Title is expected. Verification Passed");
+            } else {
+                System.out.println("Title is NOT as expected. Verification Failed");
+
+
+                driver.close();
+            }
+        }
     }
-}
+
