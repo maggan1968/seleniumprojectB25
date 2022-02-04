@@ -59,6 +59,8 @@ public class T2_FindElement_Linktest_Practice {
             System.out.println("Title is expected. Verification Passed");
         } else {
             System.out.println("Title is NOT as expected. Verification Failed");
+
+            driver.close();
         }
 
 
