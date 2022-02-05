@@ -154,3 +154,36 @@ Selenium methods:
 
 	syntax: driver.findElement(By.tagName("div"));
 
+
+--------------------------------------------------------------------------------
+
+- getText():
+	- .getText() method will get the text from in between the opening tag and closing tag
+	- it does not accept any argument
+	- Return type: String
+
+	ex : <a href="https://something.com"> GOOGLE SEARCH </a>
+
+	driver.findElement(By.linkText("GOOGLE SEARCH"));
+		-> returns me the link tag as a web element
+		-> return type is WebElement.
+
+	driver.findElement(By.linkText("GOOGLE SEARCH")).getText();
+		-> this line returns me a String
+
+
+--------------------------------------------------------------------------------
+
+- getAttribute("attributeName");
+	- .getAttribute() method will return the given attribute's value
+	- it accepts a String argument.
+	- return type: String
+	- it will find the matching attribute, and return its value
+
+	ex: <div name="hu58" id="asdf57" class="cde45"> TEXT </div>
+
+	syntax: driver.findElement(By.id("asdf57")); --> this line returns the web element
+
+- driver.findElement(By.id("asdf57")).getAttribute("class") --> cde45
+- driver.findElement(By.id("asdf57")).getAttribute("name") --> hu58
+
