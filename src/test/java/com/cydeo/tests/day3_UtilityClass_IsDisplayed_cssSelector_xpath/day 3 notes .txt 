@@ -243,8 +243,80 @@ ex#2: ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA 
 INTERVIEW QUESTION:What is the difference between absolute xpath and relative xpath?
 
    XPATH has 2 different types:
-#1 ABSOLUTE XPATH:
-  - Absolute xpath starts with single slash "/"
+#1- ABSOLUTE XPATH:
+	- Absolute xpath starts with single slash "/"
+	- It starts looking in html from the root/parent element : html element
+	- It starts from html tag, and it goes down 1 by 1 until we reach to the web element we are looking for
+	- This is not good way of locating a web element.
+	- It will break with any minimal change in the html code.
+
+	/html/body/table/tbody/tr[2]/td/div/div/form/div[4]/button
+
+#2- RELATIVE XPATH
+	- Relative xpath starts with double slash "//"
+	- "//" means you can start from anywhere in the HTML code
+	- Since we are allowed to start from anywhere in the HTML code, relative xpath is very dependable
+	- We will use relative xpath, not absolute xpath
+	- The only time your relative xpath is breaking (not working) is when/if the developer is specifically changing the attribute value we used
+
+
+--> MAIN SYNTAX: //tagName[@attribute='value']
+
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+
+-->			 //tagName[@attribute='value']
+
+- locate above <a> tag using relative xpath locator with different attributes.
+
+	- using name attribute 		: //a[@name='uh68']
+	- using class attribute 	: //a[@class='ff58']
+	- using id attribute 		: //a[@id='bb22']
+
+
+COMMONLY USED XPATH SYNTAXES:
+
+#1- //tagName[@attribute='value']
+#2- //tagName[contains(@attribute, 'value')]
+#3- //tagName[.='text']  same as //tagName[text()='text']
+#4- //*[@attribute='value']
+
+
+EXPLANATIONS:
+#1- //tagName[@attribute='value']
+
+	We are saying, get me the given tag with provided attribute and value
+
+#2- //tagName[contains(@attribute, 'value')]
+
+	We are saying, get me the given tag that has the attribute which contains the value in the locator
+
+	Looks for the tagName that has matching or containing attribute value
+
+#3- //tagName[.='text']
+
+	This locator will return the web element with given text
+
+#4- //*[@attribute='value']
+
+	We are saying, we do not care about which tagName, return us the web element with matching attribute and value result
+
+
+ chro path'
+ chrome developer tool : right click > copy > copy selector --> cssSelector
+ chrome developer tool : right click > copy > copy xpath --> relative xpath
+ chrome developer tool : right click > copy > copy full xpath --> absolute xpath
+
+
+- I do not suggest using any tools unless for just seeing example purpose.
+
+
+
+
+
+
+
 
 
 
