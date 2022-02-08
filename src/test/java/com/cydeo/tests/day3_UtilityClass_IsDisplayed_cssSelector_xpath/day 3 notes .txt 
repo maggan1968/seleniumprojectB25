@@ -140,6 +140,114 @@ syntax1: driver.findElement(By.tagName("a"));
 - It will find and return the first matching result.
 
 
+- .getText();
+- What does it do?
+- It will get the content from in between the opening tag and closing tag
+
+- What is the return type?
+- String
+
+- Does it accept any argument?
+- No.
+
+syntax: We cannot say driver.getText();
+- driver.findElement(locator).getText(); --> it will return the text of given web element
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+syntax: driver.findElement(By.name("uh68")).getText() --> TESLA CYBERTRUCK
+
+- .getAttribute();
+- What does it do?
+- It will accept an attribute and return its value.
+- It accepts a String argument
+- Return type is String
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+syntax: driver.findElement(By.name("uh68")).getAttribute("href") 	--> https://tesla.com
+syntax: driver.findElement(By.name("uh68")).getAttribute("name") 	--> uh68
+syntax: driver.findElement(By.name("uh68")).getAttribute("class") 	--> ff58
+syntax: driver.findElement(By.name("uh68")).getAttribute("id") 		--> bb22
+
+
+-----------------------------------------------------------------------------
+
+- .isDisplayed():
+
+- What does it do?
+- It returns boolean value on a given web element.
+
+- If web element is displayed, it will return "true"
+- If web element is not displayed, it will return "false"
+
+- It does not accept any argument.
+
+- syntax: driver.findElement(locator).isDisplayed(); --> true, if displayed
+- syntax: driver.findElement(locator).isDisplayed(); --> false, if not displayed
+
+-----------------------------------------------------------------------------
+
+- cssSelector locator:
+	- cssSelector is one of 8 locators from Selenium library.
+	- cssSelector allows us to create custom locators.
+	- we are able to locate web elements with any attribute value.
+	- we are not just limited to name, id, className
+	- we can use any custom attribute we see on a web element
+
+	syntax: tagName[attribute='value']
+	syntax: tagName[attribute="value"]
+
+ex:	<label class="login-item-checkbox-label" for="USER_REMEMBER">Remember me on this computer</label>
+
+cssSelector practice #1- Locate "label" using "class" attribute
+
+	tagName[attribute='value']
+
+	label[class='login-item-checkbox-label']
+
+
+cssSelector practice #2- Locate "label" using "for" attribute
+
+	tagName[attribute='value']
+
+	label[for='USER_REMEMBER']
+
+
+
+ex#2: ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+#1- locate above link using cssSelector, using name:
+
+	tagName[attribute='value']
+	a[name='uh68']
+
+#2- locate above link using cssSelector, using id:
+
+	a[id='bb22']
+
+#3- locate above link using cssSelector, using class:
+
+	a[class='ff58']
+
+#4- locate above link using cssSelector, using href:
+
+	a[href='https://tesla.com']
+
+========================================================================================
+- XPATH LOCATORS
+   - xpath is one of 8 locators of Selenium
+   -xpath allows us to create custom locators using provided attributes and their values
+   -we can also use the text of the provided web element to create locators
+
+INTERVIEW QUESTION:What is the difference between absolute xpath and relative xpath?
+
+   XPATH has 2 different types:
+#1 ABSOLUTE XPATH:
+  - Absolute xpath starts with single slash "/"
+
+
+
 
 
 
