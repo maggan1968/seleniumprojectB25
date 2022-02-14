@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
-
+//polymorphism concept
     public static WebDriver getDriver(String browserType){
 
         if (browserType.equalsIgnoreCase("chrome")){

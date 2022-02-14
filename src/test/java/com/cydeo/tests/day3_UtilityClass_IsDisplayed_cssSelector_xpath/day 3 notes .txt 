@@ -303,7 +303,7 @@ EXPLANATIONS:
 	We are saying, we do not care about which tagName, return us the web element with matching attribute and value result
 
 
- chro path'
+ chrome path'
  chrome developer tool : right click > copy > copy selector --> cssSelector
  chrome developer tool : right click > copy > copy xpath --> relative xpath
  chrome developer tool : right click > copy > copy full xpath --> absolute xpath
