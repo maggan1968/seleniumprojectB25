@@ -2,10 +2,10 @@ package com.cydeo.tests.day5_testNG_Intro_dropdowns;
 
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class T1_StaleElementReferenceException {
@@ -27,14 +27,15 @@ TC #1: StaleElementReferenceException handling   */
 //2. Go to https://practice.cydeo.com/add_remove_elements/
         driver.get("https://practice.cydeo.com/add_remove_elements/ ");
 //3. Click to “Add Element” button
-        WebElement addElementWebElementButton = driver.findElement(By.xpath("//button[@onclick='addElement()']"));
-        addElementWebElementButton.click();
+       // WebElement addElementWebElementButton = driver.findElement(By.xpath("//button[@onclick='addElement()']"));
+        WebElement addElementWebElementButton = driver.findElement(By.xpath("//button[.='Add Element']"));
 
         Thread.sleep(3000);
+        addElementWebElementButton.click();
 
 //4. Verify “Delete” button is displayed after clicking.
         WebElement deleteWebElementButton = driver.findElement(By.xpath("//button[@class='added-manually']"));
-
+        //System.out.println("deleteWebElementButton.isDisplayed = " + deleteWebElementButton.isDisplayed());
         if (deleteWebElementButton.isDisplayed()) {
             System.out.println("Delete Button verification  is  PASSED ");
         } else {
@@ -45,15 +46,23 @@ TC #1: StaleElementReferenceException handling   */
 //5. Click to “Delete” button.
         deleteWebElementButton.click();
 //6. Verify “Delete” button is NOT displayed after clicking.
-        driver.navigate().refresh();
-        List<WebElement> buttons = driver.findElements(By.xpath("//button[text()='Delete']"));
-        if (buttons.isEmpty()) {
-            System.out.println("Verifier  deleted DELETE BUTTON  :Passed ");
-        } else {
-            System.out.println("Verifier  deleted DELETE BUTTON :Failed");
-        }
-        driver.quit();
-//USE XPATH LOCATOR FOR ALL WEBELEMENT LOCATORS
 
+        try {
+
+            System.out.println("deleteWebElementButton.isDisplayed() = " + deleteWebElementButton.isDisplayed());
+
+        }catch (StaleElementReferenceException e){
+
+            System.out.println("-->StaleElementReferenceException exception is thrown");
+            System.out.println("-->This means the web element is completely deleted from the page");
+            System.out.println("deleteButton.isDisplayed() = false");
+
+        }
+
+        driver.close();
     }
 }
+//USE XPATH LOCATOR FOR ALL WEBELEMENT LOCATORS
+
+
+
