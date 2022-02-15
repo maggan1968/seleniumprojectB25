@@ -74,12 +74,9 @@ public class T1_xpath_cssSelector_practice {
 
 
 
-        ////Locate inputBox using xpath contains method
+        //Locate inputBox using xpath contains method
                //tagName[id(@attribute,'value')]
         WebElement retrievePasswordButton_ex2 = driver.findElement(By.xpath("//button[@id='form_submit']"));
-
-
-
 
         //f. “Powered by Cydeo text
         WebElement poweredByCydeoText =driver.findElement(By.xpath("//div[@style='text-align: center;']"));
