@@ -107,3 +107,33 @@ ex: Locate Google 2 link using its text with xpath
 
 //E[@A='t']
 //tagName[@attribute='value']
+
+
+--> P.I.Q:
+     - How do you handle dynamic web elements?
+    - How do you handle web elements with dynamic attribute value?
+
+    - Dynamic attribute value: means some part of an attribute value is changing when the page is refreshed.
+
+Answer#1: we use xpath methods: contains, starts-with, and ends-with
+
+1-    //tagName[contains(@attribute, 'value')]
+2-    //tagName[starts-with(@attribute, 'value')]
+3-    //tagName[ends-with(@attribute, 'value')]
+
+Answer#2: we can also locate a static (stable) parent or child web element, locate that, and move to desired web element.
+
+genk12034789102348971234
+genk98012731098237102933
+
+ 1                2
+
+
+
+0ahUKEwj6seyij4L2AhWejYkEHRdZBUMQ39UDCAY
+0ahUKEwiY2L7wj4L2AhVzkokEHRqzCo4Q39UDCAY
+
+
+//input[contains(@data-ved, '0ahUK')]
+
+
