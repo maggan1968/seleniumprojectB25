@@ -4,6 +4,7 @@ import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -38,6 +39,20 @@ public class T6HW_selectingDataOfBirth {
         Select dropDownDay = new Select(driver.findElement(By.xpath("//select[@id='day']")));
         dropDownDay.selectByIndex(0);
 
+        //creating expected values
+        String expectedYear = "1923";
+        String expectedMonth = "December";
+        String expectedDay = "1";
+
+        //getting actual values from browser
+        String actualYear = dropDownYear.getFirstSelectedOption().getText();
+        String actualMonth = dropDownMonth.getFirstSelectedOption().getText();
+        String actualDay = dropDownDay.getFirstSelectedOption().getText();
+
+        //create assertions
+        Assert.assertTrue(actualYear.equals(expectedYear));
+        Assert.assertEquals(actualMonth, expectedMonth);
+        Assert.assertEquals(actualDay, expectedDay);
 
 driver.close();
     }
