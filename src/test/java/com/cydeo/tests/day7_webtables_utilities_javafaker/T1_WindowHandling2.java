@@ -1,16 +1,15 @@
 package com.cydeo.tests.day7_webtables_utilities_javafaker;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class T1_WindowHandling {
+public class T1_WindowHandling2 {
 
     //TC #1: Window Handle practice
     //  1. Create new test and make set ups
@@ -36,35 +35,24 @@ public class T1_WindowHandling {
         ((JavascriptExecutor) driver).executeScript("window.open('https://facebook.com','_blank');");
 
         // 4. Create a logic to switch to the tab where Etsy.com is open// "iter" - short cut each loop
-        Set<String> allWindowsHandles = driver.getWindowHandles();
-        for (String each : allWindowsHandles) {
-            driver.switchTo().window(each);
-            System.out.println("Current URL: " + driver.getCurrentUrl()); //stays on Google
+
+        BrowserUtils.switchWindowAndVerify(driver, "etsy", "Etsy");
 
 
 
+        // if statement we don't need if we have only 2 windows
 
-     // if statement we don't need if we have only 2 windows
-            if (driver.getCurrentUrl().contains("etsy")) {
-                break;// stopping and stay on etsy
-            }
         }
-
-        // 5. Assert: Title contains “Etsy”
-        String actualTitle = driver.getTitle();
-        String expectedTitle = "Etsy";
-
-        Assert.assertTrue(actualTitle.contains(expectedTitle));
-
     }
 
 
-      // Lines to be pasted:
-      //These lines will simply open new tabs using something called JavascriptExecutor
-       //and get those pages. We will learn JavascriptExecutor later as well.
 
 
 
 
-   }
+
+
+
+
+
 
