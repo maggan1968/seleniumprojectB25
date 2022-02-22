@@ -171,3 +171,99 @@
 
 
 ------------------------------------------------------------------------------------
+- XPATH:
+
+- How many types of xpath do we have?
+- 2 types
+
+#1- Absolute xpath:
+	- Starts with "/" single slash
+	- Starts from the root element -> "html" tag
+	- And it goes down 1 by 1
+	- Therefore it is not dependable
+	- If there is any change happens in the structure of the html page it will break easily
+
+#2- Relative xpath:
+	- Starts with "//" double slash
+	- "//" means jump to any given point/jump to first matching result
+
+	syntax: //tagName[@attribute='value']
+
+
+- Can we use "//" more than once in an xpath locator?
+- Yes we can. We are not limited to just once. We can use as many time as we want.
+
+
+- How do we go from parent to direct child?
+- "/" will take us to direct child
+
+	//tagName[@attribute='value']/directChildTag
+
+
+- How do we go from parent to any child?
+- "//" will take us to any child.
+- It doesn't have to be directly under
+
+
+- How do we go from child to parent?
+- "/.."
+- We do not have to provide tag name here. It will just take to the parent.
+
+- How do we handle dynamic web elements?
+#1- I can locate a parent/child that is not dynamic and move from there
+#2- I will use the methods provided by xpath: contains, starts-with, ends-with
+
+	//tagName[contains(@attribute, 'value')]
+	//tagName[starts-with(@attribute, 'value')]
+	//tagName[ends-with(@attribute, 'value')]
+
+
+- How do we go from sibling to sibling?
+- There are two methods for going from sibling to sibling
+- "/preceding-sibling::" will go to the sibling that comes before
+- "/following-sibling::" will go to the sibling that comes after
+
+- The web element we locate will become the starting point (point 0).
+- We decide whether we want to go preceding or following sibling.
+- We count and we pass the index number.
+
+	//tagName[@attribute='value']
+
+
+
+ex:	//option[@value='3']
+
+
+	<select>
+2		<option value="1"> Orange 1</option>
+1		<option value="2"> Orange 2</option>
+0		<option value="3"> Orange 3</option>
+1		<option value="4"> Orange 4</option>
+2		<option value="5"> Orange 5</option>
+	</select>
+
+
+//option[@value='3']/preceding-sibling::option[1] --> this will point to Orange 1
+
+//option[@value='3']/following-sibling::option[2] --> this will point to Orange 5
+
+======================================================================================
+
+ex #1: locate month May using its value
+
+		(//option[@value='4'])[1]
+
+ex #2: locate month of March using May locator as a base and use sibling method
+
+		(//option[@value='4'])[1]/preceding-sibling::option[2]
+
+
+ex #3: locate month of October using May locator as a base and use sibling method
+
+		(//option[@value='4'])[1]/following-sibling::option[5]
+
+
+
+------------------------------------------------------------------------------------
+
+
