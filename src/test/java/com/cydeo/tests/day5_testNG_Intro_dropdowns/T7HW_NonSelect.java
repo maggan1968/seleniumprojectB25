@@ -44,6 +44,6 @@ public class T7HW_NonSelect {
     }
     @AfterMethod
     public void closeBrowser(){
-        driver.close();
+       driver.close();
     }
 }
