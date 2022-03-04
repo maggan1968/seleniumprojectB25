@@ -1,0 +1,66 @@
+Today's schedule:
+
+- Properties review
+    - finish the task
+- Javafaker
+- TestBase
+- Driver utility
+- Singleton Design Pattern
+- Guest speaker
+
+------------------------------------------------------------------------------------------------
+
+- What is properties file?
+- It is just another type of file just like .txt, and .pdf whatever.
+- But this file has .properties extension.
+
+- Why do we use properties file? What makes it different from other type of files?
+- It stores value in "key=value" format
+- We are trying to avoid hard coding some important test data in our project.
+
+- What is hard coding?
+- Writing data directly inside of the source code is called hard coding.
+- If I have to go inside of my .java class to change the data, it means I hard coded that data.
+
+- How do we read from properties type of file? INTERVIEW
+
+#1- Create Properties class' object.
+
+    Properties properties = new Properties();
+
+#2- Create FileInputStream object to open file as a stream in Java memory.
+
+    FileInputStream file = new FileInputStream("pathOfTheFileWeAreTryingToOpen");
+
+#3- Load "properties" object with the "file" we opened using FileInputStream
+
+    properties.load(file);
+
+#4- We can use properties.getProperty method to read from the file we loaded.
+    (configuration.properties)
+
+    properties.getProperty("key");  ---> value
+
+    browser ----> chrome
+    env ----> qa1.vytrack.com
+    username ----> tester5@cydeo.com
+
+
+- Which part of this is hard coded in our code : key=value
+- "key" is what we write in our .java class.
+- Therefore "key" will not change, and is hard coded.
+
+- "value" is inside of our configuration.properties file.
+- We can change the value from outside of our code
+
+
+- What is ConfigurationReader? Why did we create this?
+- To create utility method and be able to read from configuration.properties file by just calling our ConfigurationReader.getProperty("key"); method
+
+========================================================================================================
+
+
+
+
+
+

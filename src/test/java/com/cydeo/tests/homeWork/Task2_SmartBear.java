@@ -62,8 +62,6 @@ public class Task2_SmartBear {
 
         String name = fake.name().fullName();
         String street = fake.address().streetName();
-
-
         String city = fake.address().city();
         String state = fake.address().state();
         String zip = fake.address().zipCode();
