@@ -35,9 +35,9 @@ public class TC4_Config_Practice {
     @Test
     public void google_search_test() {
         //3- Write “apple” in search box
-        WebElement googleSearchBox = driver.findElement(By.xpath("//input[name='q']"));
-        googleSearchBox.sendKeys("apple" + Keys.ENTER);
+        WebElement googleSearchBox = driver.findElement(By.xpath("//input[@name='q']"));
 
+        googleSearchBox.sendKeys("apple" + Keys.ENTER);
 
 //4- Verify title:
 //    Expected: apple - Google Search

@@ -32,9 +32,9 @@ public class TC1_name_verify_test {
       //2. Verify Bob’s name is listed as expected.
       //Expected: “Bob Martin”
       String expectedBobName = "Bob Martin";
-      String actuelBobName = bobMartinCell.getText();
+      String actualBobName = bobMartinCell.getText();
 
-      Assert.assertEquals(actuelBobName, expectedBobName);
+      Assert.assertEquals(actualBobName, expectedBobName);
 
       //3. Verify Bob Martin’s order date is as expected: 12/31/2021
       //alternative locator to bobMartinDataCell = "//td[.='Bob Martin']/../td[5]"
