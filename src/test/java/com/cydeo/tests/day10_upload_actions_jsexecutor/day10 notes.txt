@@ -1,0 +1,82 @@
+Today's schedule:
+
+- Review
+- Task
+- Upload & Download
+- Actions
+- JavascriptExecutor
+
+----------------------------------------------------------------------------------------
+
+- Why do we read data from configuration.properties?
+
+#1- To eliminate hard coding important test data.
+#2- We can easily do cross browser testing.
+
+- What is cross browser testing?
+- Running the same test against different browsers.
+
+- Just by changing the value of "browser" key from "chrome" to "firefox", our tests will be running in different browser.
+
+saucelabs
+
+#3- We can easily do DATA DRIVEN TESTING?
+- What is DATA DRIVEN TESTING?
+- Running the same set of tests against different set of data.
+
+- Since we are entering our test data from configuration.properties, we can change the value from there and we will be able to run same tests against different test data.
+
+----------------------------------------------------------------------------------------
+
+How do we read from configuration.properties?
+
+#1- Create Properties class object
+
+    Properties properties = new Properties();
+
+#2- We need to open the file in the Java memory
+
+    FileInputStream fileStream = new FileInputStream("pathOfTheFile");
+
+#3- We need to load the "properties" object with the fileStream
+
+    properties.load(fileStream);
+
+#4- Use properties object and getProperty method to pass "key" and read "value"
+
+    properties.getProperty("key") --> value
+                            browser -> chrome
+                            username -> helpdesk1@cydeo.com
+
+
+----------------------------------------------------------------------------------------
+
+- Why did we create ConfigurationReader?
+
+- We created the re-usable .getProperty() utility method in ConfigurationReader class
+- We can call this method in any class and any package when we need to read from configuration.properties file
+
+----------------------------------------------------------------------------------------
+
+Driver Utility Review:
+
+- Why did we create Driver utility class and method?
+
+#1- We were having hard time passing the SAME(current) driver instance in different classes and different packages.
+#2- We had to write too many lines just to instantiate our "driver"
+#3- Now we are not only instantiating our driver in just one line, we are also optimizing the setups.
+    - determine the type of browser by reading from "configuration.properties" file
+    - window.maximize is implemented in our Driver util class
+    - timeOut.implicitlyWait is implemented in our Driver util class
+
+- How are we able to return the same instance of our driver?
+- We implemented Singleton Design Pattern.
+
+- What is a design pattern?
+- Repetable solution to a repeating issue.
+
+- Singleton Design Pattern:
+- Singleton Design Pattern makes sure we are returning the same instance every time we call our method.
+- In our case we are trying to return the same instance of DRIVER
+
+-----
