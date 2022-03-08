@@ -73,10 +73,54 @@ Driver Utility Review:
 - We implemented Singleton Design Pattern.
 
 - What is a design pattern?
-- Repetable solution to a repeating issue.
+- Repeatable solution to a repeating issue.
 
 - Singleton Design Pattern:
 - Singleton Design Pattern makes sure we are returning the same instance every time we call our method.
 - In our case we are trying to return the same instance of DRIVER
 
------
+----------------------------------------------------------------------------------------------------
+How do we implement the Singleton Design Pattern?
+
+#1- Create private constructor.
+	- Once we create private constructor, we are closing access to the object the class (Driver util)
+	- We create private variable for our WebDriver to close access from outside.
+
+#2- Create getter method to deliver the object (WebDriver) in the way we want to deliver it.
+	- The way we deliver it with using Singleton Design Pattern.
+		- If first time calling of the method/object, it will create and do setups.
+		- Next time we call the same method/object, it will keep returning the same object until the session ends or we terminate the session ourselves.
+
+
+--------------------------------------------------------------------------------
+
+- How do we handle downloads using Selenium?
+
+	- We do NOT. We can NOT handle(verify) downloads using only Selenium library.
+	- We can click to a link on a browser page.
+	- But once the file is downloaded, it will be out of scope for our selenium.
+
+
+- How do we handle uploads using Selenium?
+
+	- We can upload a file by simply passing the path of the file we want to upload.
+	- We use sendKeys, and pass the "path" as a String into the WebElement that can upload.
+
+
+- We just need to find the path of the file and pass it as a String.
+
+Windows:
+
+#1- Right click on the file
+#2- Select "properties"
+#3- Go to "Security" tab
+#4- Get the path from "Object name"
+
+Mac:
+
+#1- Right click on the file
+#2- Press and hold "option" button from keyboard
+#3- Select "copy file as path name" option
+#4- Paste into IntelliJ
+
+--------------------------------------------------------------------------------
