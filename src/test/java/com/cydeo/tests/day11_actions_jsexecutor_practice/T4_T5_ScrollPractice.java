@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class ScrollPractice {
+public class T4_T5_ScrollPractice {
 
     //    TC #4: Scroll practice
     @Test
