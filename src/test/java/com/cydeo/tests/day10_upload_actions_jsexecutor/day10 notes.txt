@@ -89,7 +89,8 @@ How do we implement the Singleton Design Pattern?
 #2- Create getter method to deliver the object (WebDriver) in the way we want to deliver it.
 	- The way we deliver it with using Singleton Design Pattern.
 		- If first time calling of the method/object, it will create and do setups.
-		- Next time we call the same method/object, it will keep returning the same object until the session ends or we terminate the session ourselves.
+		- Next time we call the same method/object, it will keep returning the same object until the session
+		 ends or we terminate the session ourselves.
 
 
 --------------------------------------------------------------------------------
@@ -124,3 +125,39 @@ Mac:
 #4- Paste into IntelliJ
 
 --------------------------------------------------------------------------------
+
+Actions:
+	- Actions class is used to handle "advanced" mouse and keyboard actions.
+	- such as:
+		- moveToElement
+		- doubleClick
+		- dragAndDrop
+		- clickAndHold
+		- contextClick
+
+
+----------------------------------------------------------------------------------
+
+JavascriptExecutor:
+	- This interface allows us to pass JavaScript functions(methods) into our JAVA-Selenium code.
+
+	- It has two methods in it.
+
+	- executeAsyncScript
+	- executeScript: this method accepts JavaScript methods as a String and applies them into our code.
+
+
+
+----------------------------------------------------------------------------------
+
+P.I.Q:
+
+- How many ways do you know how to scroll?
+
+#1- I can use window.scroll by method with JSExecutor to scroll certain number of pixels.
+
+	syntax :JavascriptExecutor.executeScript("window.scrollBy(0,750)")
+
+#2- arguments[0].scrollIntoView --> JavaScript method
+#3- PageUp, and PageDown keys using keyboard actions.
+#4- We can use the moveToElement() method from Actions class to scroll to certain web element
