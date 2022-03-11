@@ -1,0 +1,20 @@
+ day 12=== 03-12-2022
+
+
+ - src
+        - main
+        - test
+            - java
+                - com.cydeo
+                    - tests
+                        - base
+                        - tests (rest of our test packages)
+                    - utilities
+                        - Driver
+                        - ConfigurationReader
+                        - BrowserUtils
+                    - pages
+
+
+    - configuration.properties
+    - pom.xml
