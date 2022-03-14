@@ -1,0 +1,136 @@
+Today's schedule:
+
+	- Review of Synchronization
+		- Fluentwait
+
+	- Explicit wait practices
+	- FULL REVIEW OF SELENIUM SECTION INTERVIEW PERSPECTIVE
+
+------------------------------------------------------------------------------------------------------
+
+- SYNCHRONIZATION:
+
+- What is synchronization? Why do we need it?
+
+- Definition: Multiple things working at the same time.
+- We need synchronization because we need to make sure our driver and our browser are on the same page at all times.
+
+#1- Thread.sleep():
+	- This is not coming from Selenium library.
+	- This method comes from JAVA library
+	- It does not wait for ANY CONDITION TO HAPPEN.
+	- It will wait for the given duration no matter what.
+	- Therefore this is not a good practice to use.
+
+#2- implicitlyWait(10);
+	- This is coming from Selenium library.
+
+- Does it wait for any condition to happen?
+- Yes, it is waiting for ONE condition to happen when it is triggered.
+- ImplicitlyWait is ONLY triggered when findElement (@FindBy) method can NOT find a web element with given locator.
+- It will wait until the web element is found or timer runs out.
+
+- By default, timer value is 0. We need to change it to custom number we want to change.
+- We use it once, and it will be applied to the rest of our driver session life.
+
+- What happens when the timer for implicitlyWait runs out?
+- NoSuchElementException is thrown by findElement method.
+
+
+.
+.
+.
+findElement(LOCATOR); ----> TIMER STARTS
+								10
+								9
+								8
+								.
+								.
+								1
+								0 ---> NOSUCHELEMENTEXCEPTION IS THROWN IF WEB ELEMENT IS NOT FOUND
+
+
+- If web element is found, the execution will continue with no problem.
+- Even if the timer has some time left in it, code execution will continue.
+
+- What is POLLING?
+- POLLING is how many times the driver checks the DOM (HTML page) to see if the web element is there (or condition happened) or not.
+- By default, polling happens every 500 ms (or twice in 1 second)
+
+- FluentWait:
+	- Very similar to ExplicitWaits (WebDriverWait).
+	- We can change the polling time.
+
+- ExplicitWait: (WebDriverWait)
+	- Comes from Selenium library.
+	- It can wait for different conditions to happen on the page.
+	- By default it does POLLING every 500ms.
+	- If given timer runs out, TimeOutException.
+
+- How to use explicit waits?
+
+#1- Create object of WebDriverWait class.
+
+	WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+
+#2- Use the object we just created to create our condition.
+
+	wait.until(ExpectedConditions.visibilityOf());
+	wait.until(ExpectedConditions.invisibilityOf());
+	wait.until(ExpectedConditions.titleIs());
+	wait.until(ExpectedConditions.titleContains());
+	wait.until(ExpectedConditions...);
+
+alertIsPresent()
+elementSelectionStateToBe()
+elementToBeClickable()
+elementToBeSelected()
+frameToBeAvaliableAndSwitchToIt()
+invisibilityOfTheElementLocated()
+invisibilityOfElementWithText()
+presenceOfAllElementsLocatedBy()
+presenceOfElementLocated()
+textToBePresentInElement()
+textToBePresentInElementLocated()
+textToBePresentInElementValue()
+titleIs()
+titleContains()
+visibilityOf()
+visibilityOfAllElements()
+visibilityOfAllElementsLocatedBy()
+visibilityOfElementLocated()
+
+
+- What is the difference in between ExplicitWait and ImplicitlyWait?
+	- ImplicitlyWait is waiting for ONLY one condition to happen, which is if web element is located or not.
+	- NoSuchElementException will be thrown by findElement() method if web element is not found during the polling of ImplicitlyWait
+
+	- ExplicitWait can wait for many different conditions to happen.
+	- TimeOutException will be thrown if condition does not happen.
+
+
+====================================================================================================
+
+- POM DESIGN PATTERN:
+- WHAT IS POM DESIGN PATTERN?
+
+- Creating .java class for each page of our web application.
+- And store the relevant web elements and methods into their related classes.
+
+- How do we implement POM Design Pattern?
+
+#1- Create a constructor and initialize the object and driver instance using PageFactory.initElements() method.
+
+	public LoginPage(){
+		PageFactory.initElements(Driver.getDriver(), this);
+	}
+
+	Driver.getDriver() --> provides the current instance of our driver.
+	this --> provides the current class' object.
+
+- We can think of this as if we are loading our driver instance INTO our class object, so that our class object is able to call Selenium methods.
+
+
+#2- Use @FindBy annotation to locate web elements, instead of findElement();
+
+===========================================================================================
